@@ -10,9 +10,7 @@ FROM i686/ubuntu
 
 # Install Nginx.
 RUN  apt-get update
-RUN  apt-get install -y nano git
-RUN  apt-get install -y php5-fpm
-RUN  apt-get install -y nginx && \
+RUN  apt-get install -y php5-fpm nano git nginx && \
   rm -rf /var/lib/apt/lists/* && \
   echo "\ndaemon off;" >> /etc/nginx/nginx.conf && \
   chown -R www-data:www-data /var/lib/nginx
