@@ -26,6 +26,9 @@ VOLUME ["/etc/nginx/sites-enabled", "/etc/nginx/certs", "/etc/nginx/conf.d", "/v
 # Definimos el espacio de trabajo
 WORKDIR /etc/nginx
 
+# Ejecuatamos
+CMD ["nginx"]
+
 # Exponemos el puerto por el que se comunicara con el SO
 EXPOSE 8000
 #EXPOSE 443
