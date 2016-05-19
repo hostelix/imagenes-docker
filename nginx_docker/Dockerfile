@@ -8,6 +8,9 @@
 #Usamos como base ubuntu i686
 FROM i686/ubuntu
 
+
+MAINTAINER Israel Lugo - Hostelix
+
 # Actualizamos los repositorios
 RUN  apt-get update
 
