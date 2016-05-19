@@ -2,28 +2,27 @@
 #
 # Nginx Dockerfile
 #
-# https://github.com/dockerfile/nginx
+# https://github.com/hostelix/imagenes_docker/ngnix_docker
 #
 
-# Pull base image.
+#Usamos como base ubuntu i686
 FROM i686/ubuntu
 
-# Install Nginx.
+# Actualizamos los repositorios
 RUN  apt-get update
+
+# Instalamos ngnix
 RUN  apt-get install -y php5-fpm nano git nginx && \
   rm -rf /var/lib/apt/lists/* && \
   echo "\ndaemon off;" >> /etc/nginx/nginx.conf && \
   chown -R www-data:www-data /var/lib/nginx
 
-# Define mountable directories.
+# Montamos las carpetas necesarias
 VOLUME ["/etc/nginx/sites-enabled", "/etc/nginx/certs", "/etc/nginx/conf.d", "/var/log/nginx", "/var/www/html"]
 
-# Define working directory.
+# Definimos el espacio de trabajo
 WORKDIR /etc/nginx
 
-# Define default command.
-#CMD ["nginx"]
-
-# Expose ports.
-EXPOSE 80
-EXPOSE 443
+# Exponemos el puerto por el que se comunicara con el SO
+EXPOSE 8000
+#EXPOSE 443
