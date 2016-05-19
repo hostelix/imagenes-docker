@@ -46,7 +46,7 @@ RUN unzip /tmp/yii_framework.zip -d /usr/share/nginx/html/yii/
 RUN rm /tmp/yii_framework.zip 
 
 #Creamos la app de yii
-RUN cd /usr/share/nginx/html/yii/framework/
+RUN cd /usr/share/nginx/html/yii/framework/ && chmod -x yiic
 RUN ./yiic webapp ../app_yii
 
 # iniciamos el servidor de nginx
